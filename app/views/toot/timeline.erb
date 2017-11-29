@@ -1,0 +1,6 @@
+<h1>@<%= current_user.username %>'s Timeline</h1>
+  <div class="timeline">
+    <% @toots.each do |toot| %>
+      <%= render "shared/toot", toot: toot %>
+<% end %>
+  </div>

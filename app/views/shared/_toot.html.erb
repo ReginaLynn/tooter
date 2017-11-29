@@ -1,0 +1,6 @@
+<div class="toot">
+  <%= image_tag toot.user.avatar.url, height: 100 %>
+<span class="toot-user-username"><%= link_to "@#{toot.user.username}", user_url(id: toot.user.id) %></span>
+  <span class="date-in-words"><%= time_ago_in_words(toot.created_at) %> ago</span>
+  <p><%= toot.message %></p>
+</div>

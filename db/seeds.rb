@@ -8,26 +8,37 @@
 
 User.destroy_all
 
-User.create!(
-  name: "Joe O'Brien",
-  username: 'objo',
-  email: 'joe@objo.com',
-  city: "Westerville",
+@user = User.create!(
+  name: "Regina Lynn",
+  username: 'reginalynn',
+  email: 'hairston.125@osu.edu',
+  city: "Columbus",
   state: 'Ohio',
   bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   password: '123456',
   password_confirmation: '123456'
 )
 
+@user.avatar = Rails.root.join("app/assets/images/profile-pic.jpeg").open
+
+10.times do
+  @user.toots.create(
+    message: Faker::Lorem.paragraph,
+    created_at: Faker::Time.between(16.days.ago, Time.now, :all)
+  )
+end
+
+@user.save!
+
 puts "Generating Users"
 
-20.times do
+24.times do |i|
 
   putc "."
 
   password = Faker::Internet.password(6)
 
-  User.create!(
+  u = User.create!(
     name: Faker::Name.name,
     username: Faker::Internet.user_name,
     email: Faker::Internet.email,
@@ -38,4 +49,26 @@ puts "Generating Users"
     password_confirmation: password
   )
 
+  u.avatar = Rails.root.join("app/assets/images/stock-profile-#{i + 1}.jpeg").open
+
+  10.times do
+    u.toots.create(
+      message: Faker::Lorem.paragraph,
+      created_at: Faker::Time.between(16.days.ago, Time.now, :all)
+    )
+  end
+
+  u.save!
+
 end
+
+7.times do
+  u = User.all.sample
+  unless u.id == @user.id
+    puts "Following @#{u.username}"
+    @user.following.push(u.id.to_s)
+  end
+end
+
+@user.save!
+puts " "

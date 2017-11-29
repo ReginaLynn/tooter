@@ -14,6 +14,104 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome";
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "font-awesome";
+
+/* universal */
+
+.jumbotron {
+  background-image: url("http://bbcpersian7.com/images/twitter-clipart-transparent-background-12.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+body {
+  padding-top: 30px;
+  height: 100%;
+  background-color: #82caff;
+  background-image: linear-gradient(90deg, #E0FFFF, #3bb9FF);
+  opacity: 0.95;
+}
+
+h1 {
+  color: black;
+}
+
+.center {
+  text-align: center;
+}
+
+/* forms */
+.field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.thumbnail-container {
+  width: 200px;
+  height: 300px;
+  float: left;
+  overflow: scroll;
+  padding: 10px;
+}
+
+.thumbnail img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.toot img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.bio-column {
+  width: 30%;
+  padding-right: 20px;
+  float: left;
+  overflow: hidden;
+}
+
+.toot-column {
+  overflow: scroll;
+  height: 600px;
+}
+
+.date-in-words {
+  float: right;
+  color: #000;
+}
+
+.toot-form {
+  border-style: solid;
+  border-width: thin;
+  padding: 20px;
+}
+
+.toot {
+  margin: 10px;
+  padding: 10px;
+  border-style: solid;
+  border-color: #f0f0f0;
+  border-width: thin;
+  border-radius: 1%;
+  background-color: #fff;
+
+}
+.toot p {
+  padding: 20px;
+  color: #000;
+  font-size: 20px;
+}
+
+.toot-user-username {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.timeline {
+  overflow: scroll;
+  height: 600px;
+}
