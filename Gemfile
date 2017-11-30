@@ -71,3 +71,4 @@ group :production do
 gem "figaro"
 end
 gem "fog"
+gem "fog-aws"
